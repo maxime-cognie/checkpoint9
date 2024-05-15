@@ -13,6 +13,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(angles REQUIRED)
 
 if(BUILD_TESTING)
   #find_package(ament_lint_auto REQUIRED)
@@ -31,14 +32,14 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 )
 
 add_executable(pre_approach_node src/pre_approach.cpp)
-ament_target_dependencies(pre_approach_node rclcpp geometry_msgs sensor_msgs nav_msgs)
+ament_target_dependencies(pre_approach_node rclcpp geometry_msgs sensor_msgs nav_msgs angles tf2)
 
 add_executable(pre_approach_node_v2 src/pre_approach_v2.cpp)
-ament_target_dependencies(pre_approach_node_v2 rclcpp geometry_msgs sensor_msgs nav_msgs)
+ament_target_dependencies(pre_approach_node_v2 rclcpp geometry_msgs sensor_msgs nav_msgs angles tf2)
 rosidl_target_interfaces(pre_approach_node_v2 ${PROJECT_NAME} rosidl_typesupport_cpp)
 
 add_executable(approach_service_server_node src/approach_service_server.cpp)
-ament_target_dependencies(approach_service_server_node rclcpp sensor_msgs geometry_msgs tf2_ros)
+ament_target_dependencies(approach_service_server_node rclcpp sensor_msgs geometry_msgs tf2_ros angles)
 rosidl_target_interfaces(approach_service_server_node ${PROJECT_NAME} rosidl_typesupport_cpp)
 
 install(TARGETS
