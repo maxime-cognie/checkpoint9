@@ -14,6 +14,7 @@ namespace my_components
 class PreApproach : public rclcpp::Node
 {
 public:
+  COMPOSITION_PUBLIC
   PreApproach(const rclcpp::NodeOptions options);
 
 private:

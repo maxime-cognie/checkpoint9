@@ -75,7 +75,7 @@ PreApproach::PreApproach(const rclcpp::NodeOptions options)
 
 void PreApproach::timer_callback() {
   timer_->cancel();
-  obs_param_ = 0.3;
+  obs_param_ = 0.4;
   deg_param_ = -90;
   RCLCPP_INFO(this->get_logger(),
       "The robot is going to move forward until it detects an obstacle in "
